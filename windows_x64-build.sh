@@ -33,9 +33,9 @@ GENERAL="
     --toolchain=msvc
     --prefix=$PREFIX
     --arch=${ARCH}
-#    --cpu=opteron-sse3
-#    --extra-ldflags="-lz"
-#    --optflags=""
+	# --cpu=opteron-sse3
+	# --extra-ldflags="-lz"
+	# --optflags=""
     --disable-avdevice
     --disable-programs
     --disable-avfilter
@@ -50,98 +50,96 @@ GENERAL="
     --disable-hwaccels
     --disable-parsers
     --disable-protocols
-    --enable-dxva2
 "
 
 AUDIO_DECODERS="
-    --enable-decoder=aac
-    --enable-decoder=aac_latm
-    --enable-decoder=atrac3
-    --enable-decoder=atrac3p
-    --enable-decoder=mp3
-    --enable-decoder=pcm_s16le
-    --enable-decoder=pcm_s8
+    # --enable-decoder=aac
+    # --enable-decoder=aac_latm
+    # --enable-decoder=atrac3
+    # --enable-decoder=atrac3p
+    # --enable-decoder=mp3
+    # --enable-decoder=pcm_s16le
+    # --enable-decoder=pcm_s8
 "
 
 VIDEO_DECODERS="
-    --enable-decoder=h264
-    --enable-decoder=mpeg4
-    --enable-decoder=mpeg2video
-    --enable-decoder=mjpeg
-    --enable-decoder=mjpegb
+    # --enable-decoder=h264
+    # --enable-decoder=mpeg4
+    # --enable-decoder=mpeg2video
+    # --enable-decoder=mjpeg
+    # --enable-decoder=mjpegb
 "
 
 AUDIO_ENCODERS="
-    --enable-encoder=pcm_s16le
+    # --enable-encoder=pcm_s16le
 "
 
-#unused
 VIDEO_ENCODERS="
-    --enable-encoder=huffyuv
     --enable-encoder=ffv1
-    --enable-encoder=mjpeg
+    --enable-encoder=mpeg4
 "
 
 HARDWARE_ACCELS="
-    --enable-hwaccel=h264_dxva2
-#    --enable-hwaccel=h264_vaapi
-#    --enable-hwaccel=h264_vda
-#    --enable-hwaccel=h264_vdpau
-#    --enable-hwaccel=mpeg4_vaapi
-#    --enable-hwaccel=mpeg4_vdpau
+   # --enable-hwaccel=h264_dxva2
+   # --enable-hwaccel=h264_vaapi
+   # --enable-hwaccel=h264_vda
+   # --enable-hwaccel=h264_vdpau
+   # --enable-hwaccel=mpeg4_vaapi
+   # --enable-hwaccel=mpeg4_vdpau
 "
 
-#unused
 MUXERS="
     --enable-muxer=avi
 "
 
 DEMUXERS="
-    --enable-demuxer=h264
-    --enable-demuxer=m4v
-    --enable-demuxer=mp3
-    --enable-demuxer=mpegvideo
-    --enable-demuxer=mpegps
-    --enable-demuxer=mjpeg
-    --enable-demuxer=avi
-    --enable-demuxer=aac
-    --enable-demuxer=pmp
-    --enable-demuxer=oma
-    --enable-demuxer=pcm_s16le
-    --enable-demuxer=pcm_s8
-    --enable-demuxer=wav
+    # --enable-demuxer=h264
+    # --enable-demuxer=m4v
+    # --enable-demuxer=mp3
+    # --enable-demuxer=mpegvideo
+    # --enable-demuxer=mpegps
+    # --enable-demuxer=mjpeg
+    # --enable-demuxer=avi
+    # --enable-demuxer=aac
+    # --enable-demuxer=pmp
+    # --enable-demuxer=oma
+    # --enable-demuxer=pcm_s16le
+    # --enable-demuxer=pcm_s8
+    # --enable-demuxer=wav
 "
 
 PARSERS="
-    --enable-parser=h264
-    --enable-parser=mpeg4video
-    --enable-parser=mpegaudio
-    --enable-parser=mpegvideo
-    --enable-parser=mjpeg
-    --enable-parser=aac
-    --enable-parser=aac_latm
+    # --enable-parser=h264
+    # --enable-parser=mpeg4video
+    # --enable-parser=mpegaudio
+    # --enable-parser=mpegvideo
+    # --enable-parser=mjpeg
+    # --enable-parser=aac
+    # --enable-parser=aac_latm
 "
 
-PROTOCOLS=""
+PROTOCOLS="
+	--enable-protocol=file
+"
 
 BSFS="
-#    --enable-bsf=aac_adtstoasc
-#    --enable-bsf=chomp
-#    --enable-bsf=dump_extradata
-#    --enable-bsf=h264_mp4toannexb
-#    --enable-bsf=mjpeg2jpeg
-#    --enable-bsf=mjpega_dump_header
-#    --enable-bsf=mp3_header_compress
-#    --enable-bsf=mp3_header_decompress
-#    --enable-bsf=remove_extradata
+   # --enable-bsf=aac_adtstoasc
+   # --enable-bsf=chomp
+   # --enable-bsf=dump_extradata
+   # --enable-bsf=h264_mp4toannexb
+   # --enable-bsf=mjpeg2jpeg
+   # --enable-bsf=mjpega_dump_header
+   # --enable-bsf=mp3_header_compress
+   # --enable-bsf=mp3_header_decompress
+   # --enable-bsf=remove_extradata
 "
 
 INPUT_DEVICES="
-    --enable-indev=dshow
+   # --enable-indev=dshow
 "
 
 OUTPUT_DEVICES="
-#    --enable-outdev=sdl
+   # --enable-outdev=sdl
 "
 
 FILTERS=""
@@ -210,23 +208,23 @@ echo "Generate configure params."
 
 PARAMS="$(genelateparams GENERAL)\
 $(genelatelibparams)\
-$(echo -e "$(genelateparams AUDIO_DECODERS)")\
-$(echo -e "$(genelateparams VIDEO_DECODERS)")\
-$(echo -e "$(genelateparams AUDIO_ENCODERS)")\
+$(echo -e "$(genelateparams MUXERS)")
 $(echo -e "$(genelateparams VIDEO_ENCODERS)")\
-$(echo -e "$(genelateparams BSFS)")\
-$(echo -e "$(genelateparams PARSERS)")\
-$(echo -e "$(genelateparams MUXERS)")\
-$(echo -e "$(genelateparams DEMUXERS)")\
-$(echo -e "$(genelateparams HARDWARE_ACCELS)")\
-$(echo -e "$(genelateparams INPUT_DEVICES)")\
+$(echo -e "$(genelateparams PROTOCOLS)")
 "
 params_dump PARAMS
 
 # these are not necessary
-# $(echo -e "$(genelateparams MUXERS)")
+# $(echo -e "$(genelateparams AUDIO_DECODERS)")\
+# $(echo -e "$(genelateparams VIDEO_DECODERS)")\
 # $(echo -e "$(genelateparams AUDIO_ENCODERS)")\
 # $(echo -e "$(genelateparams VIDEO_ENCODERS)")\
+# $(echo -e "$(genelateparams BSFS)")\
+# $(echo -e "$(genelateparams PARSERS)")\
+# $(echo -e "$(genelateparams DEMUXERS)")\
+# $(echo -e "$(genelateparams HARDWARE_ACCELS)")\
+# $(echo -e "$(genelateparams INPUT_DEVICES)")\
+# $(echo -e "$(genelateparams AUDIO_ENCODERS)")\
 
 
 echo "---- configure ----"
