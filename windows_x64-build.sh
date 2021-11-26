@@ -9,8 +9,8 @@
 # MSYS
 # 1. open command-prompt of Visual Studio (IMPORTANT: Correct bit-ness! There are both)
 # 2. $ msys2_shell.cmd -use-full-path
-# 3. $ cd /PathTo/ppsspp/ffmpeg
-# 4. $ windows_x64-build.sh
+# 3. $ cd /path/to/dolphin-ffmpeg
+# 4. $ ./windows_x64-build.sh
 #build requements.
 # use toolchain=msvc
 # http://ffmpeg.org/platform.html#Windows
