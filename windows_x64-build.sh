@@ -8,7 +8,7 @@
 #
 # MSYS
 # 1. open command-prompt of Visual Studio (IMPORTANT: Correct bit-ness! There are both)
-# 2. run msys.bat on the command-line.
+# 2. $ msys2_shell.cmd -use-full-path
 # 3. $ cd /PathTo/ppsspp/ffmpeg
 # 4. $ windows_x64-build.sh
 #build requements.
@@ -76,6 +76,7 @@ AUDIO_ENCODERS="
 
 VIDEO_ENCODERS="
     --enable-encoder=ffv1
+    --enable-encoder=utvideo
     --enable-encoder=mpeg4
 "
 
